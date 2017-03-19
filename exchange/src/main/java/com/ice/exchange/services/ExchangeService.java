@@ -9,13 +9,8 @@ import java.math.BigDecimal;
  * Created by Bartek on 2017-03-12.
  */
 
-@Service
-public class ExchangeService {
-    public CurrencyDTO getFinalCurrencyDTO(BigDecimal value, BigDecimal multiplier,  String currencyTo){
-        return new CurrencyDTO(value, multiplier, currencyTo);
-    }
-    public CurrencyDTO getSimpleCurrencyDTO(BigDecimal value, String currency)
-    {
-        return new CurrencyDTO(value, currency);
-    }
+//Interfejs nie powinien miec adnotacji technologicznych
+public interface ExchangeService {
+    public CurrencyDTO getFinalCurrencyDTO(BigDecimal value, BigDecimal multiplier,  String currencyTo);
+    public CurrencyDTO getSimpleCurrencyDTO(BigDecimal value, String currency);
 }

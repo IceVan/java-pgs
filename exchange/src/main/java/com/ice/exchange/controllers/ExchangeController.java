@@ -2,10 +2,18 @@ package com.ice.exchange.controllers;
 
 import com.ice.exchange.dto.CurrencyDTO;
 import com.ice.exchange.services.ExchangeService;
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by Bartek on 2017-03-08.
@@ -14,7 +22,11 @@ import java.math.BigDecimal;
 public class ExchangeController {
 
     @Autowired
-    ExchangeService exchangeService;
+    private ExchangeService exchangeService;
+
+    @Autowired
+    @Qualifier("getMyString")
+    private String myBean;
 
     @RequestMapping("/{value}/{multiplier}")
     public String currencyExchanger(@PathVariable BigDecimal value,
@@ -30,5 +42,11 @@ public class ExchangeController {
                                             @RequestParam("currencyFrom") String currencyFrom,
                                             @RequestParam("currencyTo") String currencyTo){
         return exchangeService.getFinalCurrencyDTO(value,multiplier,currencyTo);
+    }
+
+    @RequestMapping("/test")
+    public String currencyExchangerBisTwo(HttpServletRequest httpRequest, HttpServletResponse httpResponse){
+        httpResponse.setStatus(418);
+        return "trololololo";
     }
 }
