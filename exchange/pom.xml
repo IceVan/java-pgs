@@ -11,9 +11,9 @@
 	<description>Demo project for Spring Boot</description>
 
 	<scm>
-		<connection>scm:git:https://github.com/IceVan/java-pgs/.git</connection>
+		<connection>scm:git:https://github.com/IceVan/java-pgs/</connection>
 		<url>http://github.com/IceVan/java-pgs/exchange</url>
-		<developerConnection>scm:git:https://github.com/IceVan/java-pgs/.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/IceVan/java-pgs/exchange</developerConnection>
 	  <tag>v0.0.1</tag>
   </scm>
 
